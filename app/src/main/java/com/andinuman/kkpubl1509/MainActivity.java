@@ -7,12 +7,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     private EditText edtPesan;
     private EditText edtKey;
-    private EditText edtEnkrip;
+    private TextView txtEnkrip;
     private Button btnEnkrip;
 
     @Override
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private void initUI() {
         edtPesan = (EditText) findViewById(R.id.edtPesan);
         edtKey = (EditText) findViewById(R.id.edtKey);
-        edtEnkrip = (EditText) findViewById(R.id.edtEnkripsi);
+        txtEnkrip = (TextView) findViewById(R.id.txtEnkripsi);
         btnEnkrip = (Button) findViewById(R.id.buttonEnkripsiPesan);
         btnEnkrip.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         String pesan = edtPesan.getText().toString();
         String strKey=edtKey.getText().toString().trim();
         String chiperText= Kripto.enkripsi(pesan, strKey);
-        edtEnkrip.setText(chiperText);
+        txtEnkrip.setText(chiperText);
     }
 
     @Override

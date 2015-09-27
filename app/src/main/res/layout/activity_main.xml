@@ -51,12 +51,11 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"/>
 
-    <EditText
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:id="@+id/edtEnkripsi"
+        android:ems="30"
+        android:id="@+id/txtEnkripsi"
         android:layout_below="@+id/buttonEnkripsiPesan"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />

@@ -11,8 +11,8 @@ import javax.crypto.spec.SecretKeySpec;
 public class Kripto {
     public static String enkripsi(String pesan, String key){
         try {
-            SecretKeySpec KS = new SecretKeySpec(key.getBytes(), "Blowfish");
-            Cipher cipher = Cipher.getInstance("Blowfish");
+            SecretKeySpec KS = new SecretKeySpec(key.getBytes(), "RC4");
+            Cipher cipher = Cipher.getInstance("RC4");
             cipher.init(Cipher.ENCRYPT_MODE, KS);
             byte[] encrypted = cipher.doFinal(pesan.getBytes());
             return Base64.encodeToString(encrypted, Base64.NO_PADDING);
