@@ -1,6 +1,5 @@
 package com.andinuman.kkpubl1509;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,29 +9,44 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class BuatPesan extends AppCompatActivity {
 
-    private Button btnPesan;
+    private EditText edtPesan;
+    private EditText edtKey;
+    private TextView txtEnkrip;
+    private Button btnEnkrip;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        btnPesan = (Button) findViewById(R.id.buatPesan);
+        setContentView(R.layout.activity_buat_pesan);
+        initUI();
+    }
 
-        btnPesan.setOnClickListener(new View.OnClickListener() {
+    private void initUI() {
+        edtPesan = (EditText) findViewById(R.id.edtPesan);
+        edtKey = (EditText) findViewById(R.id.edtKey);
+        txtEnkrip = (TextView) findViewById(R.id.txtEnkripsi);
+        btnEnkrip = (Button) findViewById(R.id.buttonEnkripsiPesan);
+        btnEnkrip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getBaseContext(), BuatPesan.class);
-                startActivity(intent);
+                enkripsiPesan();
             }
         });
+    }
+
+    private void enkripsiPesan() {
+        String pesan = edtPesan.getText().toString();
+        String strKey=edtKey.getText().toString().trim();
+        String chiperText= Kripto.enkripsi(pesan, strKey);
+        txtEnkrip.setText(chiperText);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_buat_pesan, menu);
         return true;
     }
 
