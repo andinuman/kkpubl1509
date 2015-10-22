@@ -1,0 +1,39 @@
+html, body {
+    background: url("../img/bg.png") no-repeat right bottom;
+}
+.index-page {
+    margin-top:150px;
+}
+.wrap-page {
+    margin-top:50px;
+}
+.header {
+    width: 100%;
+    display: block;
+    margin: 10px 0 25px;
+}
+.header h4 {
+    margin: 30px 0;
+}
+.navigasi {
+    width: 100%;
+    display: block;
+    margin-bottom: 25px;
+}
+.navigasi a {
+    margin-right: 15px;
+}
+#file, #text {
+    width: 100%;
+    display: block;
+    padding: 30px 0;
+}
+#text form textarea {
+    min-height: 20rem;
+}
+.card-panel {
+    float: left;
+    width: 100%;
+    position: relative;
+    display: block;
+}
