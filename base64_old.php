@@ -1,5 +1,5 @@
 <?php
-class Base64 {
+class Base64_Algoritma {
   
   private static $base = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
 

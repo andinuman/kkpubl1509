@@ -5,18 +5,14 @@
  * Date: 10/10/15
  * Time: 12:35 AM
  */
+    session_start();
 
+    if(!isset($_SESSION['username'])){
+        header("location:login.php");
+    }
 ?>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>Project document credential software - Think Digital</title>
-        <link rel="stylesheet" href="css/materialize.min.css" type="text/css" media="all">
-        <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <script type="text/javascript" src="js/materialize.min.js"></script>
-    </head>
+    <?php include('meta.php'); ?>
     <body>
         <div class="container">
             <div class="row">
@@ -28,8 +24,9 @@
                             <h5>Project document credential software</h5>
                         </div>
                         <div class="navigasi">
-                            <a class="waves-effect waves-light btn-large" href="encode.php"><i class="material-icons right">input</i>Encrypter</a>
-                            <a class="waves-effect waves-light btn-large" href="#"><i class="material-icons right">vpn_key</i>Decrypter</a>
+                            <a class="waves-effect waves-light btn-large" href="encode.php"><i class="mdi mdi-login right"></i>Encrypter</a>
+                            <a class="waves-effect waves-light btn-large" href="decode.php"><i class="mdi mdi-key right"></i>Decrypter</a>
+                            <a class="waves-effect waves-light btn-large" href="logout.php"><i class="mdi mdi-power right"></i>Log out</a>
                         </div>
                     </div>
                 </div>
