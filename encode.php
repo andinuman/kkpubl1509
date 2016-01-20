@@ -120,7 +120,7 @@ if ( ! empty($_POST) OR ! empty($_FILES)) {
     </script>
 <?php endif; ?>
 <script type="text/javascript">
-    var _validFileExtensions = [".txt",".pdf"];
+    var _validFileExtensions = [".txt"];
     $("#upload-file").bind('change', function() {
         var fileName = $(this).val();
         var fileSize = this.files[0].size;
