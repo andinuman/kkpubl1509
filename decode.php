@@ -76,7 +76,7 @@ if ( ! empty($_POST) OR ! empty($_FILES)) {
                                         <input name="file" type="file" id="upload-file">
                                     </div>
                                     <div class="file-path-wrapper">
-                                        <input class="file-path validate" type="text" placeholder="Upload one file">
+                                        <input class="file-path validate" type="text" placeholder="Extension file : .evo">
                                     </div>
                                 </div>
                                 <div class="input-field col s12">
