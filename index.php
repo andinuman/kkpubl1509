@@ -21,7 +21,7 @@
                     <div class="card-panel center">
                         <div class="header">
                             <img src="img/logo.png">
-                            <h5>Project document credential software</h5>
+                            <h5>Platform File Security System</h5>
                         </div>
                         <div class="navigasi">
                             <a class="waves-effect waves-light btn-large" href="encode.php"><i class="mdi mdi-login right"></i>Encrypter</a>

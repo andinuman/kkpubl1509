@@ -8,7 +8,7 @@
 ?>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Project document credential software - Think Digital</title>
+    <title>Platform File Security System - PT. Allievo Protech Infotama</title>
     <link rel="stylesheet" href="css/materialize.min.css" type="text/css" media="all">
     <link rel="stylesheet" href="css/style.css" type="text/css" media="all">
     <link href="css/materialdesignicons.min.css" rel="stylesheet">

@@ -104,7 +104,7 @@ if ( ! empty($_POST) OR ! empty($_FILES)) {
     <div id="download-file" class="modal modal-fixed-footer" style="width: 30% !important;">
         <div class="modal-content">
             <div class="center-align">
-                <h4>Result encryption</h4>
+                <h4>Result decryption</h4>
                 <p><img src="img/icon.lock.png"> </p>
                 <p><?=$result['name']?></p>
                 <p><?=$result['size']?></p>
