@@ -73,3 +73,6 @@ html, body {
     padding:2px 20px;
     text-align: center;
 }
+.modal .modal-content img {
+    max-width: 30%;
+}

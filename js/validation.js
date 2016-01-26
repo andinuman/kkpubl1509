@@ -1,6 +1,7 @@
 /**
  * Created by sikasep on 1/26/16.
  */
+$(".button-collapse").sideNav();
 $('#formFile').validate({
     rules: {
         secretkey: {
@@ -46,7 +47,7 @@ $("#decrypt-file").bind('change', function() {
 $("#upload-file").bind('change', function() {
     var fileName = $(this).val();
     var fileSize = this.files[0].size;
-    console.log(this.files[0].type);
+    //console.log(fileSize);
     if (fileName.length > 0) {
         var blnValid = false;
         for (var j = 0; j < _validFileExtensions.length; j++) {
@@ -61,7 +62,7 @@ $("#upload-file").bind('change', function() {
             $(this).val('');
             return false;
         }
-        else if(fileSize > 1000000) {
+        else if(fileSize > 1048576) {
             Materialize.toast('Sorry file size is bigger, max file size are: 1MB ', 3000);
             $(this).val('');
         }

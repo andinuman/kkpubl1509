@@ -61,7 +61,14 @@ if ( ! empty($_POST) OR ! empty($_FILES)) {
                     </div>
                     <nav>
                         <div class="nav-wrapper">
+                            <a href="#" data-activates="mobile-demo" class="button-collapse">MENU <i class="mdi mdi-menu-right right"></i></a>
                             <ul id="nav-mobile" class="left hide-on-med-and-down">
+                                <li><a href="index.php">Home</a></li>
+                                <li><a href="encode.php">Encrypter</a></li>
+                                <li class="active"><a href="decode.php">Decrypter</a></li>
+                                <li><a href="logout.php">Log out</a></li>
+                            </ul>
+                            <ul class="side-nav" id="mobile-demo">
                                 <li><a href="index.php">Home</a></li>
                                 <li><a href="encode.php">Encrypter</a></li>
                                 <li class="active"><a href="decode.php">Decrypter</a></li>
@@ -85,7 +92,7 @@ if ( ! empty($_POST) OR ! empty($_FILES)) {
                                     </div>
                                 </div>
                                 <div class="input-field col s12">
-                                    <input name="secretkey" placeholder="Please provide your secret key (min: 8 characters)" id="secret_key" type="password" class="validate" value="<?php if (isset($_FILES['file'])): echo $key; endif; ?>">
+                                    <input name="secretkey" placeholder="Please provide your secret key (min: 8 characters)" id="secret_key" type="password" class="validate">
                                     <label for="first_name">Secret Key</label>
                                 </div>
                                 <div class="input-field col s12">
@@ -106,7 +113,7 @@ if ( ! empty($_POST) OR ! empty($_FILES)) {
     </div>
 </div>
 <?php if($result): ?>
-    <div id="download-file" class="modal modal-fixed-footer" style="width: 30% !important;">
+    <div id="download-file" class="modal">
         <div class="modal-content">
             <div class="center-align">
                 <h4>Result decryption</h4>
