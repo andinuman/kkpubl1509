@@ -5,7 +5,9 @@
  * Date: 10/22/15
  * Time: 12:33 AM
  */
+include('session.php');
 include('rc4.php');
+$start = microtime(TRUE);
 if ( ! empty($_POST) OR ! empty($_FILES)) {
     $key = $_POST["secretkey"];
     if (empty($key)) {
@@ -38,7 +40,9 @@ if ( ! empty($_POST) OR ! empty($_FILES)) {
                 $bytes = number_format($bytes / 1024, 2) . ' KB';
             }
             $size = $bytes;
-            $result = array('name' => $filename, 'size' => $size, 'link' => 'download.php?download_file='.$filename);
+            $finish = microtime(TRUE);
+            $totaltime = $finish - $start;
+            $result = array('name' => $filename, 'size' => $size, 'time'=>$totaltime, 'link' => 'download.php?download_file='.$filename);
         }
     }
 }
@@ -67,20 +71,21 @@ if ( ! empty($_POST) OR ! empty($_FILES)) {
                     </nav>
                     <h5 class="center-align">Decrypter</h5>
                     <p class="center-align">Please insert file & secret key in below: </p>
+                    <div class="errorTxt"></div>
                     <div class="box-form">
                         <div id="file" class="col s12">
-                            <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data">
+                            <form id="formFile" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data">
                                 <div class="file-field input-field col s12">
                                     <div class="btn">
                                         <span>File</span>
-                                        <input name="file" type="file" id="upload-file">
+                                        <input name="file" type="file" id="decrypt-file">
                                     </div>
                                     <div class="file-path-wrapper">
                                         <input class="file-path validate" type="text" placeholder="Extension file : .evo">
                                     </div>
                                 </div>
                                 <div class="input-field col s12">
-                                    <input name="secretkey" placeholder="Please provide your secret key" id="secret_key" type="password" class="validate" value="<?php if (isset($_FILES['file'])): echo $key; endif; ?>">
+                                    <input name="secretkey" placeholder="Please provide your secret key (min: 8 characters)" id="secret_key" type="password" class="validate" value="<?php if (isset($_FILES['file'])): echo $key; endif; ?>">
                                     <label for="first_name">Secret Key</label>
                                 </div>
                                 <div class="input-field col s12">
@@ -106,8 +111,9 @@ if ( ! empty($_POST) OR ! empty($_FILES)) {
             <div class="center-align">
                 <h4>Result decryption</h4>
                 <p><img src="img/icon.lock.png"> </p>
-                <p><?=$result['name']?></p>
-                <p><?=$result['size']?></p>
+                <p>Filename : <?=$result['name']?></p>
+                <p>Filesize : <?=$result['size']?></p>
+                <p>Execution Time: <?=$result['time']?> seconds</p>
                 <a href="<?=$result['link']?>" class="waves-effect waves-light btn-large"><i class="mdi mdi-download right"></i>Download</a>
             </div>
         </div>
@@ -119,26 +125,8 @@ if ( ! empty($_POST) OR ! empty($_FILES)) {
         $('#download-file').openModal();
     </script>
 <?php endif; ?>
+<script type="text/javascript" src="js/validation.js"></script>
 <script type="text/javascript">
-    var _validFileExtensions = [".evo"];
-    $("#upload-file").bind('change', function() {
-        var fileName = $(this).val();
-        if (fileName.length > 0) {
-            var blnValid = false;
-            for (var j = 0; j < _validFileExtensions.length; j++) {
-                var sCurExtension = _validFileExtensions[j];
-                if (fileName.substr(fileName.length - sCurExtension.length, sCurExtension.length).toLowerCase() == sCurExtension.toLowerCase()) {
-                    blnValid = true;
-                    break;
-                }
-            }
-            if (!blnValid) {
-                Materialize.toast('Sorry file is invalid, allowed extensions are: ' + _validFileExtensions.join(", "), 2500);
-                $(this).val('');
-                return false;
-            }
-        }
-    });
     <?php if($data['msg']): ?>
         Materialize.toast('<?=$data['msg']?>', 2500);
     <?php endif; ?>

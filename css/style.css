@@ -48,3 +48,28 @@ html, body {
 .modal {
     width:35% !important;
 }
+.errorTxt {
+    border-radius: 2px;
+    width: 100%;
+    float: left;
+    display: block;
+    position: relative;
+    background: #c62828;
+    /*margin-top: 10px;*/
+    position: relative;
+    -webkit-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    -o-transform: translateY(0%);
+    transform: translateY(0%);
+}
+.errorTxt div {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: #fff;
+    position: relative;
+    display: block;
+    width: 100%;
+    float: left;
+    padding:2px 20px;
+    text-align: center;
+}

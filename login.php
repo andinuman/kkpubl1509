@@ -23,8 +23,9 @@
                         </div>
                         <div class="navigasi">
                             <h4>Please sign in</h4>
+                            <div class="errorTxt"></div>
                             <div class="col s12">
-                                <form method="post" action="">
+                                <form id="formLogin" method="post" action="">
                                     <div class="input-field col s12">
                                         <input name="eusername" id="username" type="email" class="validate">
                                         <label for="username">Username</label>

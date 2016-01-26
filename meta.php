@@ -14,4 +14,5 @@
     <link href="css/materialdesignicons.min.css" rel="stylesheet">
     <script src="js/jquery.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/jquery.validate.min.js"></script>
 </head>

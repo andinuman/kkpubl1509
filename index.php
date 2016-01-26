@@ -5,11 +5,7 @@
  * Date: 10/10/15
  * Time: 12:35 AM
  */
-    session_start();
-
-    if(!isset($_SESSION['username'])){
-        header("location:login.php");
-    }
+include('session.php');
 ?>
 <html>
     <?php include('meta.php'); ?>
